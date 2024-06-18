@@ -9,10 +9,9 @@ import json
 import datetime
 
 # -----------Speech to Text
-from vosk import Model, KaldiRecognizer, SetLogLevel
+from vosk import Model, KaldiRecognizer
 model = Model(model_name="vosk-model-en-us-0.21")
-#model = Model(model_name="vosk-model-small-en-us-0.15", lang="en-us")
-rec = KaldiRecognizer(model, 16000)     #audio is recorded at 16 kHz
+rec = KaldiRecognizer(model, 16000)                 #audio is recorded at 16 kHz
 rec.SetWords(True)
 rec.SetPartialWords(True)
 
@@ -27,7 +26,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import pandas as pd
 from langchain.docstore.document import Document
 
-from llm_pipe import groq_pipeline, moondream_pipeline, get_file_name
+from llm_pipe import groq_pipeline, moondream_pipeline
 
 import re #used to extract the file names
 
