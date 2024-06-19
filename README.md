@@ -23,8 +23,6 @@ Solder components like so:
 
 <img src="soldered-components.jpg" height="500">
 
-To install the firmware, go to the [firmware folder](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/xiao-firmware) 
-
 ### Software
 1. Clone the repo with `git clone https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable.git`
 2. In the root folder install required libraries and dependencies with `pip install requirements.txt`
@@ -33,18 +31,17 @@ To install the firmware, go to the [firmware folder](https://github.com/xanderch
 5. Run `main.py`
    - Make sure the Ollama server is on by running `ollama serve` in a terminal
    - When first running the script it will probably take a while to download the VOSK model
-
-To install the firmware:
-1. Go to the [firmware folder](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/xiao-firmware) and open the `.ino` file in the Arduino IDE
-2. Follow the software preparation steps to set up the Arduino IDE for the XIAO ESP32S3 board:
-   - Add ESP32 board package to your Arduino IDE:
-     - Navigate to File > Preferences, and fill "Additional Boards Manager URLs" with the URL: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
-     - Navigate to Tools > Board > Boards Manager..., type the keyword `esp32` in the search box, select the latest version of `esp32`, and install it.
-   - Select your board and port:
-     - On top of the Arduino IDE, select the port (likely to be COM3 or higher).
-     - Search for `xiao` in the development board on the left and select `XIAO_ESP32S3`.
-
-3. Before you flash go to the "Tools" drop-down in the Arduino IDE and make sure you set "PSRAM:" to "PSRAM: "OPI PSRAM"
+6. Install the firmware onto the XIAO ESP32 S3 board:
+   1. Go to the [firmware folder](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/xiao-firmware) and open the `.ino` file in the Arduino IDE
+   2. Follow the software preparation steps to set up the Arduino IDE for the XIAO ESP32S3 board:
+      - Add ESP32 board package to your Arduino IDE:
+        - Navigate to File > Preferences, and fill "Additional Boards Manager URLs" with the URL: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+        - Navigate to Tools > Board > Boards Manager..., type the keyword `esp32` in the search box, select the latest version of `esp32`, and install it.
+      - Select your board and port:
+        - On top of the Arduino IDE, select the port (likely to be COM3 or higher).
+        - Search for `xiao` in the development board on the left and select `XIAO_ESP32S3`.
+   
+   3. Before you flash go to the "Tools" drop-down in the Arduino IDE and make sure you set "PSRAM:" to "PSRAM: "OPI PSRAM"
 
 ![Like this](OPI-PSRAM.png)
 
