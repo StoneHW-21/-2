@@ -7,7 +7,7 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 
 ## Demo
 
-## Setup and Installation:
+## Setup and Installation
 ### Hardware and Components
 - 1 XIAO ESP32 S3 Sense board
 - 1 [220 mAh LiPo battery](https://www.amazon.ca/dp/B0CKRBTW8Z?psc=1&ref=ppx_yo2ov_dt_b_product_details)
@@ -16,8 +16,14 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 - 2 Wires
 
 Solder components like so:
+1. One wire connects to D0
+2. The other wire connects to GND
+3. Solder the leftmost prong of the 3-way switch to the BAT+ pin
+4. Solder the negative battery wire to the BAT- pin and the positive battery wire to the middle prong of the 3-way switch
 
-## How It Works:
+<img src="https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/blob/main/assets/soldered-components.jpg" height="500">
+
+## How It Works
 When the wearable is switched on and the user is connected to the software, the wearable will start taking pictures every 5 seconds which will be sent over via Bluetooth Low Energy (BLE). Once the picture is received it is sent to a multimodal local language model running on Ollama which generates a description of the image. The image is saved to the [Pictures](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/Pictures) folder and the file name and description are added to a vector database and data frame containing past image files and descriptions. If the user presses the wire to ask the wearable a question, the wearable will turn off the camera and start recording audio packets. These audio packets are sent via BLE and processed by VOSK to generate the user transcription query. This transcription query is vectorized to obtain relevant context from the vector database and the question and context are sent to Groq for a super-fast response with an appropriate answer. Once the response is received, a [Text-To-Speech model](https://pypi.org/project/pyttsx3/) reads out the response. The user can then ask follow-up questions or press the wire to resume capturing images. When the user closes the software, the image file names and descriptions are saved to `image-descriptions.csv`.
 
 ## Acknowledgements
