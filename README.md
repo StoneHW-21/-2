@@ -31,10 +31,7 @@ Solder components like so:
 2. In the root folder install required libraries and dependencies with `pip install requirements.txt`
 3. Create a `.env` in the root directory and add your Groq API key by pasting `GROQ_API_KEY="YOUR_API_KEY_HERE"` in the file
 4. Install Ollama and download the [moondream2 model](https://www.ollama.com/library/moondream) by running `ollama pull moondream` in a terminal
-5. Run `main.py`
-   - Make sure the Ollama server is on by running `ollama serve` in a terminal
-   - When first running the script it will probably take a while to download the VOSK model
-6. Install the firmware onto the XIAO ESP32 S3 board:
+5. Install the firmware onto the XIAO ESP32 S3 board:
    1. Go to the [firmware folder](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/xiao-firmware) and open the `.ino` file in the Arduino IDE
    2. Follow the software preparation steps to set up the Arduino IDE for the XIAO ESP32S3 board:
       - Add ESP32 board package to your Arduino IDE:
@@ -47,10 +44,14 @@ Solder components like so:
    3. Before you flash go to the "Tools" drop-down in the Arduino IDE and make sure you set "PSRAM:" to "PSRAM: "OPI PSRAM"
       
       ![Like this](OPI-PSRAM.png)
-   5. Upload the firmware to the XIAO ESP32S3 board by putting it in BOOT mode (press the boot button down, then click the reset button, then release the boot button)
+   4. Upload the firmware to the XIAO ESP32S3 board by putting it in BOOT mode (press the boot button down, then click the reset button, then release the boot button)
+6. Run `main.py`
+   - Make sure the Ollama server is on by running `ollama serve` in a terminal
+   - When first running the script it will probably take a while to download the VOSK model
+   - To connect to the device, click on the window popup, press the "Select BLE Device" button, and wait for the device to show up (don't mind the UI 😅)
 
 ## How It Works
-When the wearable is switched on and the user is connected to the software, the wearable will start taking pictures every 5 seconds which will be sent over via Bluetooth Low Energy (BLE). Once the picture is received it is sent to a multimodal local language model running on Ollama which generates a description of the image. The image is saved to the [Pictures](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/Pictures) folder and the file name and description are added to a vector database and data frame containing past image files and descriptions. If the user presses the wire to ask the wearable a question, the wearable will turn off the camera and start recording audio packets. These audio packets are sent via BLE and processed by VOSK to generate the user transcription query. This transcription query is vectorized to obtain relevant context from the vector database and the question and context are sent to Groq for a super-fast response with an appropriate answer. Once the response is received, a [Text-To-Speech model](https://pypi.org/project/pyttsx3/) reads out the response. The user can then ask follow-up questions or press the wire to resume capturing images. When the user closes the software, the image file names and descriptions are saved to `image-descriptions.csv`.
+When the wearable is switched on and the user is connected to the software, the wearable will start taking pictures every 5 seconds which will be sent over via Bluetooth Low Energy (BLE). Once the picture is received it is sent to a multimodal local language model running on Ollama which generates a description of the image. The image is saved to the [Pictures](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/Pictures) folder and the file name and description are added to a vector database and data frame containing past image files and descriptions. If the user presses the wire to ask the wearable a question, the wearable will turn off the camera and start recording audio packets. These audio packets are sent via BLE and processed by VOSK to generate the user transcription query. This transcription query is vectorized to obtain relevant context from the vector database and the question and context are sent to Groq for a super-fast response with an appropriate answer. Once the response is received, a [Text-To-Speech model](https://pypi.org/project/pyttsx3/) reads out the response, and the top 5 most relevant images are displayed on the screen. The user can then ask follow-up questions or press the wire to resume capturing images. When the user closes the software, the image file names and descriptions are saved to `image-descriptions.csv`.
 
 ## Acknowledgements
 Thank you to [OpenGlass](https://github.com/BasedHardware/OpenGlass) for open-sourcing their code which helped me in creating the embedded software for the XIAO ESP32 S3.
