@@ -21,7 +21,7 @@ Solder components like so:
 3. Solder the leftmost prong of the 3-way switch to the BAT+ pin
 4. Solder the negative battery wire to the BAT- pin and the positive battery wire to the middle prong of the 3-way switch
 
-<img src="https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/blob/main/assets/soldered-components.jpg" height="500">
+<img src="soldered-components.jpg" height="500">
 
 To install the firmware, go to the [firmware folder](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/xiao-firmware) 
 
@@ -44,7 +44,7 @@ To install the firmware:
 
 3. Before you flash go to the "Tools" drop down in the Arduino IDE and make sure you set "PSRAM:" to be "PSRAM: "OPI PSRAM"
 
-![Like this](image.png)
+![Like this](OPI-PSRAM.png)
 
 4. Upload the firmware to the XIAO ESP32S3 board.
 
