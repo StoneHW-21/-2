@@ -1,5 +1,7 @@
 # Voice Assistant Camera Wearable
 
+![Wearable](wearable.jpg)
+
 Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xanderchinxyz/ESP32-CAM-Semantic-Search) by improving the physical design and adding a voice assistant powered by:
 - [A local multimodal large language model](https://www.ollama.com/library/moondream)
 - [Groq](https://groq.com/) with Retrieval Augmented Generation (RAG)
