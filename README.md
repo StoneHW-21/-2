@@ -1,6 +1,6 @@
 # Voice Assistant Camera Wearable
 
-![Device](device.jpg)
+![Device](device.png)
 
 Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xanderchinxyz/ESP32-CAM-Semantic-Search) by improving the physical design and adding a voice assistant powered by:
 - [A local multimodal large language model](https://www.ollama.com/library/moondream)
