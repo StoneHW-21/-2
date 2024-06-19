@@ -42,10 +42,8 @@ Solder components like so:
         - Search for `xiao` in the development board on the left and select `XIAO_ESP32S3`.
    
    3. Before you flash go to the "Tools" drop-down in the Arduino IDE and make sure you set "PSRAM:" to "PSRAM: "OPI PSRAM"
-
-![Like this](OPI-PSRAM.png)
-
-4. Upload the firmware to the XIAO ESP32S3 board by putting it in BOOT mode (press the boot button down, then click the reset button, then release the boot button)
+      ![Like this](OPI-PSRAM.png)
+   4. Upload the firmware to the XIAO ESP32S3 board by putting it in BOOT mode (press the boot button down, then click the reset button, then release the boot button)
 
 ## How It Works
 When the wearable is switched on and the user is connected to the software, the wearable will start taking pictures every 5 seconds which will be sent over via Bluetooth Low Energy (BLE). Once the picture is received it is sent to a multimodal local language model running on Ollama which generates a description of the image. The image is saved to the [Pictures](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/Pictures) folder and the file name and description are added to a vector database and data frame containing past image files and descriptions. If the user presses the wire to ask the wearable a question, the wearable will turn off the camera and start recording audio packets. These audio packets are sent via BLE and processed by VOSK to generate the user transcription query. This transcription query is vectorized to obtain relevant context from the vector database and the question and context are sent to Groq for a super-fast response with an appropriate answer. Once the response is received, a [Text-To-Speech model](https://pypi.org/project/pyttsx3/) reads out the response. The user can then ask follow-up questions or press the wire to resume capturing images. When the user closes the software, the image file names and descriptions are saved to `image-descriptions.csv`.
