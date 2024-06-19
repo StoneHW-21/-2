@@ -8,6 +8,7 @@ load_dotenv()
 groq_api_key = os.getenv('GROQ_API_KEY')
 client = Groq(api_key=groq_api_key)
 
+# for generating descriptions from images
 def moondream_pipeline(image_bytes, prompt):
     stream = ollama.chat(
         model="moondream", 
@@ -22,6 +23,7 @@ def moondream_pipeline(image_bytes, prompt):
     answer = answer.replace("\n", "")
     return answer
 
+# for generating responses from user queries
 def groq_pipeline(question, context):
     formatted_prompt = f"You are an AI designed to help answer questions about what the user has seen. Question: {question}\n\nWhat the user has seen: {context}. Keep your answer very brief"
     chat_completion = client.chat.completions.create(

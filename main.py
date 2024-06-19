@@ -45,7 +45,7 @@ embeddings = HuggingFaceBgeEmbeddings(
 vectorstore = Chroma.from_documents(documents=splits, embedding=embeddings, collection_metadata={"hnsw:space": "cosine"})
 retriever = vectorstore.as_retriever(
     search_type="mmr",
-    search_kwargs={'k': 5, 'lambda_mult': 0.25}
+    search_kwargs={'k': 5, 'lambda_mult': 0.25} # get top 5 results
 )
 
 def format_docs(docs):
@@ -64,7 +64,6 @@ class BLEApp:
         self.img_byte_array = bytearray()
         self.prev_img_byte_array = bytearray()
          
-
         self.master = master
         self.master.title("BLE Device Selector")
         self.master.geometry("1000x800")
@@ -83,13 +82,13 @@ class BLEApp:
         context = format_docs(retrieved_docs)
         answer = groq_pipeline(question, context)
         print(context)
-        file_names = re.findall(r'File Name: (\d+)', context)
-        print(file_names)
+        file_names = re.findall(r'File Name: (\d+)', context)   # get top 5 images related to query
 
         #destroy the previous images in the frame
         for widget in self.img_frame2.winfo_children():
             widget.destroy()
         
+        # display top 5 images
         for file_name in file_names:
             image = Image.open("./Pictures/" + str(file_name) + ".jpg")
             image = image.resize((int(240*0.75), int(320*0.75)))
@@ -97,8 +96,10 @@ class BLEApp:
 
             # Create a label to display the image
             label = tk.Label(self.img_frame2, image=photo)
-            label.image = photo  # Keep a reference to avoid garbage collection
+            label.image = photo
             label.pack(side=tk.LEFT, padx=5, pady=5)
+        
+        # Text to speech
         engine.say(answer)
         engine.runAndWait()
         self.speakingStatus = False
@@ -123,7 +124,7 @@ class BLEApp:
         
         self.device_listbox.delete(0, END)
         for device in devices:
-            self.device_listbox.insert(END, device)
+            self.device_listbox.insert(END, device) #display devices
 
         self.label.config(text="Double-click a device to connect")
 
@@ -135,7 +136,7 @@ class BLEApp:
     def on_device_select(self, event):
         selected_index = self.device_listbox.curselection()[0]
         selected_device = self.device_listbox.get(selected_index)
-        selected_address = selected_device[:17]  # Extract the device address
+        selected_address = selected_device[:17]  # extract the device address
 
         self.device_window.destroy()
 
@@ -146,8 +147,8 @@ class BLEApp:
             if client.is_connected:
                 
                 self.connect_button.destroy()
-                self.test = Label(self.master, text="Connected")
-                self.test.pack(pady=2)
+                self.connect_label = Label(self.master, text="Connected")
+                self.connect_label.pack(pady=2)
 
                 img_frame = tk.Frame(self.master)
                 img_frame.pack()
@@ -171,7 +172,7 @@ class BLEApp:
                         
                         photo = ImageTk.PhotoImage(image)
                         label = tk.Label(img_frame, image=photo)
-                        label.image = photo  # Keep a reference to avoid garbage collection
+                        label.image = photo
                         label.grid(row=0, column=1)
 
                         self.prev_img_byte_array = self.img_byte_array
@@ -201,7 +202,7 @@ class BLEApp:
                 await client.start_notify(AUDIO_UUID, audio_notification_handler)
                 print(f"Subscribed to {AUDIO_UUID}")
 
-                def command_notification_handler(sender, data):
+                def command_notification_handler(sender, data): # I dont really need this actually
                     print(data)
                         
                 await client.start_notify(COMMAND_UUID, command_notification_handler)
