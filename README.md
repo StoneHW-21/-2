@@ -9,6 +9,8 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 
 ## Demo
 
+[<img src="https://i.ytimg.com/vi/QoPYoWWtxFI/oardefault.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLDlh2RQlAirwlc8tS3Wi4lZBgS-eA" height="500">](https://www.youtube.com/shorts/QoPYoWWtxFI)
+
 ## Setup and Installation
 ### Hardware and Components
 - 1 XIAO ESP32 S3 Sense board
