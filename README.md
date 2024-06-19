@@ -14,6 +14,7 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 - 1 3-way switch
 - 1 [3D Printed Case + Lid](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/STL-Files)
 - 2 Wires
+- 1 Binder clip attached to the case with some sticky tack to attach to a pair of glasses
 
 Solder components like so:
 1. One wire connects to D0
