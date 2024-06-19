@@ -11,7 +11,7 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 ### Hardware and Components
 - 1 XIAO ESP32 S3 Sense board
 - 1 [220 mAh LiPo battery](https://www.amazon.ca/dp/B0CKRBTW8Z?psc=1&ref=ppx_yo2ov_dt_b_product_details)
-- 1 3 way switch
+- 1 3-way switch
 - 1 [3D Printed Case + Lid](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/STL-Files)
 - 2 Wires
 
