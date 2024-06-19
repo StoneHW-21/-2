@@ -18,7 +18,7 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 
 Solder components like so:
 1. One wire connects to D0
-2. The other wire connects to GND
+2. The other wire connects to GND or BAT- and interlock this wire with the other wire (it helps with registering touch presses)
 3. Solder the leftmost prong of the 3-way switch to the BAT+ pin
 4. Solder the negative battery wire to the BAT- pin and the positive battery wire to the middle prong of the 3-way switch
 
