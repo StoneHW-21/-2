@@ -20,7 +20,7 @@ https://youtube.com/shorts/sPIqjVPMnrE
 - 1 3-way switch
 - 1 [3D Printed Case + Lid](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/STL-Files)
 - 2 Wires
-- 1 Binder clip attached to the case with some sticky tack to attach for clipping onto a pair of glasses
+- 1 Binder clip attached to the case with some sticky tack for clipping onto a pair of glasses
 
 Solder components like so:
 1. One wire connects to D0
