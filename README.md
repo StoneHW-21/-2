@@ -30,7 +30,9 @@ To install the firmware, go to the [firmware folder](https://github.com/xanderch
 2. In the root folder install required libraries and dependencies with `pip install requirements.txt`
 3. Create a `.env` in the root directory and add your Groq API key by pasting `GROQ_API_KEY="YOUR_API_KEY_HERE"` in the file
 4. Install Ollama and download the [moondream2 model](https://www.ollama.com/library/moondream) by running `ollama pull moondream` in a terminal
-5. Run `main.py` (make sure the Ollama server is on by running `ollama serve` in a terminal)
+5. Run `main.py`
+   - Make sure the Ollama server is on by running `ollama serve` in a terminal
+   - When first running the script it will probably take a while to download the VOSK model
 
 To install the firmware:
 1. Go to the [firmware folder](https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable/tree/main/xiao-firmware) and open the `.ino` file in the Arduino IDE
@@ -42,7 +44,7 @@ To install the firmware:
      - On top of the Arduino IDE, select the port (likely to be COM3 or higher).
      - Search for `xiao` in the development board on the left and select `XIAO_ESP32S3`.
 
-3. Before you flash go to the "Tools" drop down in the Arduino IDE and make sure you set "PSRAM:" to be "PSRAM: "OPI PSRAM"
+3. Before you flash go to the "Tools" drop-down in the Arduino IDE and make sure you set "PSRAM:" to "PSRAM: "OPI PSRAM"
 
 ![Like this](OPI-PSRAM.png)
 
