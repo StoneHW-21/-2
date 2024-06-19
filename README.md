@@ -9,7 +9,8 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 
 ## Video Demo
 
-[<img src="https://i.ytimg.com/vi/3FRebbv1b2U/oardefault.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLAyC39Wpy5mFumumnEJMKGmbuFN2g" height="500">](https://www.youtube.com/shorts/QoPYoWWtxFI)
+[<img src="https://i.ytimg.com/vi/sPIqjVPMnrE/oardefault.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLDyEHgx038nyxZUDjW3GCqRPhijHw" height="500">](https://youtube.com/shorts/sPIqjVPMnrE)
+(https://youtube.com/shorts/sPIqjVPMnrE)
 
 ## Setup and Installation
 ### Hardware and Components
