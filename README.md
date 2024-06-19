@@ -7,7 +7,7 @@ Improved my previous [ESP32-CAM Semantic Search Wearable](https://github.com/xan
 
 ![Device](device.png)
 
-## Demo
+## Video Demo
 
 [<img src="https://i.ytimg.com/vi/3FRebbv1b2U/oardefault.jpg?sqp=-oaymwEdCJUDENAFSFWQAgHyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLAyC39Wpy5mFumumnEJMKGmbuFN2g" height="500">](https://www.youtube.com/shorts/QoPYoWWtxFI)
 
