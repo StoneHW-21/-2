@@ -32,7 +32,7 @@ Solder components like so:
 
 ### Software
 1. Clone the repo with `git clone https://github.com/xanderchinxyz/Voice-Assistant-Camera-Wearable.git`
-2. In the root folder install required libraries and dependencies with `pip install requirements.txt`
+2. In the root folder install required libraries and dependencies with `pip install -r requirements.txt`
 3. Create a `.env` in the root directory and add your Groq API key by pasting `GROQ_API_KEY="YOUR_API_KEY_HERE"` in the file
 4. Install Ollama and download the [moondream2 model](https://www.ollama.com/library/moondream) by running `ollama pull moondream` in a terminal
 5. Install the firmware onto the XIAO ESP32 S3 board:
